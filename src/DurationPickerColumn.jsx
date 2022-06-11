@@ -191,10 +191,11 @@ function DurationPickerColumn(props) {
 
   useEffect(() => {
     // set up initial position configuration of slidey
-    alignOffsetToCell(props.initial, true);
+    const { initial } = props; // solve destructuring issue in dev
+    alignOffsetToCell(initial, true);
 
     // eslint-disable-next-line react/destructuring-assignment
-  }, [alignOffsetToCell, props.initial]);
+  }, [alignOffsetToCell, props]);
 
   useEffect(() => {
     // when offset config is changed, check if need to adjust slidey and update current selection

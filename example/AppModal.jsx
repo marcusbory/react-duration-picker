@@ -50,6 +50,7 @@ function AppModal(props) {
     >
       <div>
         <DurationPicker
+          noHours
           onChange={onChange}
           initialDuration={
             initialDuration || { hours: 0, minutes: 0, seconds: 0 }
