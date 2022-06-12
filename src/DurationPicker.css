@@ -65,7 +65,7 @@
 
 .rdp-text-overlay {
   position: absolute;
-  font-family: "sans-serif";
+  font-family: sans-serif;
   /* font-style: italic; */
   display: flex;
   align-items: center;
@@ -80,7 +80,7 @@
 
 .rdp-text-overlay div {
   font-size: 17px;
-  font-family: "sans-serif";
+  font-family: sans-serif;
   position: relative;
   top: 2px;
   left: 2px;

@@ -5,7 +5,7 @@ import { toTwoDigitString } from "./utils";
 DurationPickerColumn.propTypes = {
   onChange: PropTypes.func.isRequired,
   // note that 'minutes' and 'seconds' are abbreviated in this prop
-  unit: PropTypes.oneOf(["hours", "mins", "secs"]).isRequired,
+  unit: PropTypes.oneOf(["hours", "min", "s"]).isRequired,
   isSmallScreen: PropTypes.bool,
   maxHours: PropTypes.number,
   cellHeight: PropTypes.number,

@@ -70,13 +70,13 @@ function DurationPicker(props) {
       )}
       <DurationPickerColumn
         onChange={onChangeMinutes}
-        unit="mins"
+        unit="min"
         isSmallScreen={isSmallScreen}
         initial={initialDuration.minutes}
       />
       <DurationPickerColumn
         onChange={onChangeSeconds}
-        unit="secs"
+        unit="s"
         isSmallScreen={isSmallScreen}
         initial={initialDuration.seconds}
       />
