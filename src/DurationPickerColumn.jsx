@@ -50,7 +50,7 @@ function DurationPickerColumn(props) {
   // ********* EVENT HANDLERS ********* //
 
   function startHandler(e) {
-    // e.preventDefault();
+    e.preventDefault();
     if (e.touches) {
       setIsTouchInProgress(true);
     }
@@ -58,7 +58,7 @@ function DurationPickerColumn(props) {
   }
 
   const moveHandler = useCallback(e => {
-    // e.preventDefault();
+    e.preventDefault();
     const position = e.touches ? e.touches[0].clientY : e.clientY;
     setOffsetState(prevOffsetState => {
       return {
@@ -70,7 +70,7 @@ function DurationPickerColumn(props) {
   }, []);
 
   const endHandler = useCallback(e => {
-    // e.preventDefault();
+    e.preventDefault();
     setIsTouchInProgress(false);
   }, []);
 
@@ -248,17 +248,23 @@ function DurationPickerColumn(props) {
   useEffect(() => {
     // set up and teardown listeners for keyboard and mouse input
     const container = containerRef.current;
-    container.addEventListener("focusin", focusInHandler);
-    container.addEventListener("focusout", focusOutHandler);
-    window.addEventListener("keydown", keyDownHandler);
-    window.addEventListener("mousemove", mouseMoveHandler);
-    window.addEventListener("mouseup", mouseUpHandler);
+    container.addEventListener("focusin", focusInHandler, { passive: false });
+    container.addEventListener("focusout", focusOutHandler, { passive: false });
+    window.addEventListener("keydown", keyDownHandler, { passive: false });
+    window.addEventListener("mousemove", mouseMoveHandler, { passive: false });
+    window.addEventListener("mouseup", mouseUpHandler, { passive: false });
     return () => {
-      container.removeEventListener("focusin", focusInHandler);
-      container.removeEventListener("focusout", focusOutHandler);
-      window.removeEventListener("keydown", keyDownHandler);
-      window.removeEventListener("mousemove", mouseDownHandler);
-      window.removeEventListener("mouseup", mouseUpHandler);
+      container.removeEventListener("focusin", focusInHandler, {
+        passive: false,
+      });
+      container.removeEventListener("focusout", focusOutHandler, {
+        passive: false,
+      });
+      window.removeEventListener("keydown", keyDownHandler, { passive: false });
+      window.removeEventListener("mousemove", mouseDownHandler, {
+        passive: false,
+      });
+      window.removeEventListener("mouseup", mouseUpHandler, { passive: false });
     };
   }, [
     focusInHandler,
