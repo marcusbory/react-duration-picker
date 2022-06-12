@@ -50,7 +50,7 @@ function DurationPickerColumn(props) {
   // ********* EVENT HANDLERS ********* //
 
   function startHandler(e) {
-    e.preventDefault();
+    // e.preventDefault();
     if (e.touches) {
       setIsTouchInProgress(true);
     }
@@ -58,7 +58,7 @@ function DurationPickerColumn(props) {
   }
 
   const moveHandler = useCallback(e => {
-    e.preventDefault();
+    // e.preventDefault();
     const position = e.touches ? e.touches[0].clientY : e.clientY;
     setOffsetState(prevOffsetState => {
       return {
@@ -70,7 +70,7 @@ function DurationPickerColumn(props) {
   }, []);
 
   const endHandler = useCallback(e => {
-    e.preventDefault();
+    // e.preventDefault();
     setIsTouchInProgress(false);
   }, []);
 
